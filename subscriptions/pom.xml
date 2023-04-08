@@ -190,13 +190,14 @@
           <compilerPlugins>
             <plugin>all-open</plugin>
             <plugin>jpa</plugin>
+            <plugin>no-arg</plugin>
           </compilerPlugins>
           <pluginOptions>
             <option>all-open:annotation=javax.ws.rs.Path</option>
             <option>all-open:annotation=javax.enterprise.context.ApplicationScoped</option>
             <option>all-open:annotation=io.quarkus.test.junit.QuarkusTest</option>
             <option>all-open:annotation=javax.persistence.Entity</option>
-            <option>noarg:annotation=javax.persistence.Embeddable</option>
+            <option>no-arg:annotation=javax.persistence.Embeddable</option>
           </pluginOptions>
         </configuration>
       </plugin>

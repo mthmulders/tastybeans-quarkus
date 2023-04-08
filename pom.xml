@@ -10,5 +10,6 @@
 	<module>catalog</module>
 	<module>subscriptions</module>
 	<module>shipping</module>
+	<module>timer</module>
   </modules>
 </project>

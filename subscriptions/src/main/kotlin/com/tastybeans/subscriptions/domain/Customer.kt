@@ -115,7 +115,7 @@ class Customer() : PanacheEntityBase {
         }
 
         fun findWithPendingEndingSubscriptions(date: LocalDate): Multi<Customer> {
-            return find("subscription.endDate is not null and subscription.endDate < :date", date).stream()
+            return find("subscription.endDate is not null and subscription.endDate < ?1", date).stream()
         }
     }
 }
