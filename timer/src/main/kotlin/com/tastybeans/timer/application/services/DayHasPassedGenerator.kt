@@ -2,6 +2,7 @@ package com.tastybeans.timer.application.services
 
 import com.tastybeans.timer.api.events.DayHasPassed
 import io.smallrye.mutiny.Multi
+import io.smallrye.reactive.messaging.annotations.Broadcast
 import org.eclipse.microprofile.reactive.messaging.Outgoing
 import org.slf4j.LoggerFactory
 import java.time.Duration
@@ -12,6 +13,7 @@ import javax.enterprise.context.ApplicationScoped
 class DayHasPassedGenerator {
     private val logger = LoggerFactory.getLogger(DayHasPassedGenerator::class.java)
 
+    @Broadcast
     @Outgoing("dayHasPassed")
     fun generate(): Multi<DayHasPassed> {
         val date = LocalDate.now()
