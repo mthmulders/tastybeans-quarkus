@@ -32,8 +32,7 @@ Please make sure you have the following tools available:
 
 ## :rocket: Getting started
 
-- Run `make images` to build the docker images.
-- Run `docker-compose up -d` to start the environment.
+- Run `quarkus dev` in each of the folders.
 
 ## :construction_worker: Developing
 
