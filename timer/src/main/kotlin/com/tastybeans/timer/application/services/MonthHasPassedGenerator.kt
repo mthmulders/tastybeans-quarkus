@@ -3,8 +3,6 @@ package com.tastybeans.timer.application.services
 import com.tastybeans.timer.api.events.DayHasPassed
 import com.tastybeans.timer.api.events.MonthHasPassed
 import io.smallrye.mutiny.Multi
-import io.smallrye.mutiny.Uni
-import org.eclipse.microprofile.reactive.messaging.Emitter
 import org.eclipse.microprofile.reactive.messaging.Incoming
 import org.eclipse.microprofile.reactive.messaging.Outgoing
 import org.slf4j.LoggerFactory
