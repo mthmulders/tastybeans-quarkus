@@ -62,7 +62,7 @@ class Customer() : PanacheEntityBase {
             "Customer doesn't have an active subscription", emptySet()
         )
 
-        this.subscription = subscription?.copy(endDate = cmd.endDate)
+        this.subscription = subscription.copy(endDate = cmd.endDate)
 
         return this
     }
