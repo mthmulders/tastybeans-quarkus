@@ -11,7 +11,7 @@ import javax.enterprise.context.ApplicationScoped
 @ApplicationScoped
 class StartSubscriptionCommandHandler {
     @Incoming("startSubscription")
-    @Outgoing("subscriptionResumed")
+    @Outgoing("subscriptionStarted")
     fun handle(cmd: StartSubscription): Uni<SubscriptionStarted> {
         return Customer.get(cmd.customerId).map { customer ->
             customer.startSubscription(cmd)

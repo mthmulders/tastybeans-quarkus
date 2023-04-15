@@ -3,6 +3,7 @@ package com.tastybeans.subscriptions.infrastructure
 import com.tastybeans.subscriptions.api.events.SubscriptionCancelled
 import com.tastybeans.subscriptions.api.events.SubscriptionEnded
 import com.tastybeans.subscriptions.api.events.SubscriptionStarted
+import io.smallrye.reactive.messaging.annotations.Merge
 import io.smallrye.reactive.messaging.rabbitmq.OutgoingRabbitMQMetadata
 import org.eclipse.microprofile.reactive.messaging.Acknowledgment
 import org.eclipse.microprofile.reactive.messaging.Incoming
@@ -13,21 +14,11 @@ import javax.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
 class IntegrationEvents {
+    @Merge
     @Incoming("subscriptionStarted")
     @Outgoing("subscriptionStartedIntegrationEvent")
     @Acknowledgment(Acknowledgment.Strategy.PRE_PROCESSING)
     fun publishSubscriptionStarted(evt: SubscriptionStarted): Message<SubscriptionStarted> {
-        val metadata = OutgoingRabbitMQMetadata.builder()
-            .withRoutingKey("subscriptions.subscription.started.v1")
-            .build()
-
-        return Message.of(evt, Metadata.of(metadata))
-    }
-
-    @Incoming("subscriptionResumed")
-    @Outgoing("subscriptionResumedIntegrationEvent")
-    @Acknowledgment(Acknowledgment.Strategy.PRE_PROCESSING)
-    fun publishSubscriptionResumed(evt: SubscriptionStarted): Message<SubscriptionStarted> {
         val metadata = OutgoingRabbitMQMetadata.builder()
             .withRoutingKey("subscriptions.subscription.started.v1")
             .build()
